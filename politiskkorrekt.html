@@ -403,6 +403,17 @@
             width: 200px;
             font-size: 1vw;
         }
+        #intro{
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+        #introImage{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
         @keyframes moveAttack{
             from{
@@ -454,6 +465,9 @@
 
 </head>
 <body>
+    <div id="intro">
+        <img id="introImage" src="https://github.com/Somat-1/finnNavnSenere/blob/main/SpeedBoom.gif?raw=true">
+    </div>
     <div id="menu">
         <div class="person" id="person1"  onclick="charErna();buttonClick.play();battleSong.play()">
             
@@ -513,13 +527,21 @@
         var char;
         var stats;
         var menu = document.getElementById("menu");
+        var intro = document.getElementById("intro");
+        menu.style.transform="scale(0)";
+
+        function gameMenuOn(){
+            intro.remove();
+            menu.style.transform="scale(1)";
+        }
+    setTimeout(gameMenuOn,2700);
         function charErna(){
             char="https://github.com/Somat-1/finnNavnSenere/blob/main/ernamad.gif?raw=true";
             stats = ernaStats;
             enemy = 'https://github.com/Somat-1/finnNavnSenere/blob/main/Hitler.gif?raw=true';
             charName = 'ERNA';
             damageMultiplier = 0.7;
-            hitMultiplier = 0.8;
+            hitMultiplier = 0.9;
             enemyDamageMultiplier = 2;
             enemyHitMultiplier = 1.5;
             console.log(ernaStats.damageMultiplier);
@@ -554,7 +576,7 @@
             stats = trumpStats;
             enemy="https://github.com/Somat-1/finnNavnSenere/blob/main/ernamad.gif?raw=true";
           console.log("Gangnam style");
-          damageMultiplier = 1;
+          damageMultiplier = 1.1;
           hitMultiplier = 1;
           enemyDamageMultiplier = 0.7;
           enemyHitMultiplier = 0.8;
